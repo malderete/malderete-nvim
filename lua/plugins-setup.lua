@@ -58,6 +58,10 @@ return packer.startup(function(use)
     use("saadparwaiz1/cmp_luasnip")     -- for autocompletion
     use("rafamadriz/friendly-snippets") -- useful snippets
 
+    -- LSP servers, linters and formmaters
+    use("williamboman/mason.nvim")           -- managing lsp servers, linters & formatters
+    use("williamboman/mason-lspconfig.nvim") -- closes some gaps between mason.nvim and lspconfig
+
     if packer_bootstrap then
         require("packer").sync()
     end
