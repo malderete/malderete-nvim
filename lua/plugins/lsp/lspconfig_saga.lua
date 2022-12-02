@@ -41,3 +41,66 @@ for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
+
+-- LSP servers configuration
+local util = require("lspconfig/util")
+
+lspconfig["gopls"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
+})
+
+lspconfig["pylsp"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+        pylsp = {
+            plugins = {
+                pycodestyle = { enabled = false },
+                pyflakes = { enabled = false },
+                mccabe = { enabled = false },
+                flake8 = { enabled = true },
+            },
+            configurationSources = { 'flake8' },
+        },
+    },
+})
+
+lspconfig["bashls"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
+lspconfig["clangd"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
+lspconfig["lua_ls"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+        Lua = {
+            -- make the language server recognize "vim" global
+            diagnostics = {
+                globals = { "vim" },
+            },
+            workspace = {
+                -- make language server aware of runtime files
+                library = {
+                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                    [vim.fn.stdpath("config") .. "/lua"] = true,
+                },
+            },
+        },
+    },
+})
