@@ -62,6 +62,10 @@ return packer.startup(function(use)
     use("williamboman/mason.nvim")           -- managing lsp servers, linters & formatters
     use("williamboman/mason-lspconfig.nvim") -- closes some gaps between mason.nvim and lspconfig
 
+    -- configuring lsp servers
+    use("neovim/nvim-lspconfig")                     -- configure language servers
+    use({ "glepnir/lspsaga.nvim", branch = "main" }) -- better LSP UIs
+
     if packer_bootstrap then
         require("packer").sync()
     end
