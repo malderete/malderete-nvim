@@ -68,6 +68,30 @@ return packer.startup(function(use)
     use({ "glepnir/lspsaga.nvim", branch = "main" }) -- better LSP UIs
     use("onsails/lspkind.nvim")                      -- vs-code like icons for autocompletion
 
+    -- Symbols list based on LSP
+    use("simrat39/symbols-outline.nvim")
+
+    -- auto closing
+    use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
+
+    -- commenting with gc
+    use("numToStr/Comment.nvim")
+
+    -- manage special comments such as "TODO", "FIXME"
+    use("folke/todo-comments.nvim")
+
+    -- add, delete, change surroundings
+    use({ "kylechui/nvim-surround", tag = "*" })
+
+    -- treesitter configuration
+    use({
+        "nvim-treesitter/nvim-treesitter",
+        run = function()
+            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+            ts_update()
+        end,
+    })
+
     if packer_bootstrap then
         require("packer").sync()
     end
