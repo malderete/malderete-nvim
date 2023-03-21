@@ -2,6 +2,16 @@
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [make](https://www.gnu.org/software/make/)
 
+
+## Installation
+```bash
+$ # Clone the repository
+$ git clone https://github.com/malderete/malderete-nvim.git ~/projects/malderete-nvim
+$ # Link ~/.config/nvim to ~/projects/malderete-nvim
+$ ln -s ~/projects/malderete-nvim ~/.config/nvim
+```
+
+
 ## LSP shortcuts
 I decided to use LSP for all languages. This allows, for example, to use exactly the same shortcuts no matter what language we are working on.
 When a LSP client is attached to the current buffer it attaches the following shortcuts:
