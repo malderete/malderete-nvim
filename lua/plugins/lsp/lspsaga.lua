@@ -5,11 +5,21 @@ end
 
 saga.setup({
     definition = {
-        edit = "<CR>",
+        keys = {
+            edit = "<CR>",
+        },
     },
     outline = {
         keys = {
             jump = "<CR>",
         },
+    },
+    finder = {
+        default = "def+ref",
+        keys = {
+            toggle_or_open = "<CR>",
+            vsplit = "v",
+            close = "q",
+        }
     }
 })
