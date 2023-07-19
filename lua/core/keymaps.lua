@@ -45,6 +45,8 @@ keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")   -- find string i
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")     -- list open buffers
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")   -- list available help tags
+keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- find in GIT commits
+keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>")  -- list GIT status per file
 
 -- restart lsp server
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
