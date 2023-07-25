@@ -27,6 +27,7 @@ When a LSP client is attached to the current buffer it attaches the following sh
 - `,d`: List diagnostics
 - `[d`, Jump to previous diagnostic in buffer
 - `]d`, Jump to next diagnostic in buffer
+- `,ss`, Search symbols in buffer
 
 
 ## Useful shortcuts for navigation
@@ -36,6 +37,8 @@ When a LSP client is attached to the current buffer it attaches the following sh
 - `,fc`: Find string under cursor in current working directory
 - `,fb`: List open buffers
 - `,fh`: List available help tags
+- `,gc`: Find Git commits using Telescode
+- `,gs`: List Git status per file
 
 
 ## Others
