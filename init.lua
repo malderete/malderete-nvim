@@ -6,6 +6,7 @@ require("core.colorscheme")
 
 --plugins configuirations
 require("plugins.nvim-tree")
+require("plugins.indent-blankline")
 require("plugins.lualine")
 require("plugins.telescope")
 require("plugins.nvim-cmp")
@@ -18,3 +19,4 @@ require("plugins.sorround")
 require("plugins.symbols-outline")
 require("plugins.autopairs")
 require("plugins.treesitter")
+require("plugins.gitsigns")

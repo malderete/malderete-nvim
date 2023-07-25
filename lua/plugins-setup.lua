@@ -44,6 +44,9 @@ return packer.startup(function(use)
     -- statusline
     use("nvim-lualine/lualine.nvim")
 
+    -- indent guides
+    use("lukas-reineke/indent-blankline.nvim")
+
     -- fuzzy finding w/ telescope
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
     use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })        -- fuzzy finder
@@ -82,6 +85,8 @@ return packer.startup(function(use)
 
     -- add, delete, change surroundings
     use({ "kylechui/nvim-surround", tag = "*" })
+
+    use({ 'lewis6991/gitsigns.nvim' })
 
     -- treesitter configuration
     use({
