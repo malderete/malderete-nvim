@@ -23,7 +23,6 @@ treesitter.setup({
         "gitignore",
         "c",
         "go",
-        "perl",
         "python",
     },
     auto_install = false,

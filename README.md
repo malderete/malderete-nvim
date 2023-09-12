@@ -39,6 +39,7 @@ When a LSP client is attached to the current buffer it attaches the following sh
 - `,fh`: List available help tags
 - `,gc`: Find Git commits using Telescode
 - `,gs`: List Git status per file
+- `,ts`: Find todo comments (TODO, FIXME)
 
 
 ## Others
