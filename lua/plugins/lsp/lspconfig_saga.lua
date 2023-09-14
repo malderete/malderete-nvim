@@ -8,27 +8,34 @@ if not cmp_nvim_lsp_status then
     return
 end
 
-local keymap = vim.keymap
-
+local lsp_mappings = {
+    n = {
+        ["gf"] = { "<cmd>Lspsaga finder<cr>", "Find definition, references" },
+        ["gi"] = { "<cmd>Telescope lsp_implementations<cr>", "Go to Implementation" },
+        ["gd"] = { "<cmd>Lspsaga peek_definition<cr>", "Go to Definition" },
+        ["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Go to Declaration" },
+        ["K"] = { "<cmd>Lspsaga hover_doc<cr>", "Show documentation form the word under the cursor" },
+        ["<leader>o"] = { "<cmd>Lspsaga outline<cr>", "Outline on right hand side" },
+        ["<leader>ca"] = { "<cmd>Lspsaga code_action<cr>", "Code Actions" },
+        ["<leader>rn"] = { "<cmd>Lspsaga rename<cr>", "Rename" },
+        ["<leader>d"] = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
+        ["[d"] = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "Diagnostic Previous" },
+        ["]d"] = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "Diagnostic Next" },
+        ["<leader>ss"] = { "<cmd>Telescope lsp_document_symbols<CR>", "Show Symbols" }
+    }
+}
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
-    local opts = { noremap = true, silent = true, buffer = bufnr }
-
-    keymap.set("n", "gf", "<cmd>Lspsaga finder<CR>", opts)                         -- show definition, references
-    keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)          -- go to implementation
-    keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)                -- go to definition
-    keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)          -- go to declaration
-    keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)                       -- show documentation for what is under cursor
-    keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts)                 -- see outline on right hand side
-    keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)            -- see available code actions
-    keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)                 -- smart rename
-    keymap.set("n", "<leader>d", "<cmd>Telescope diagnostics<CR>", opts)           -- list diagnostics
-    keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)           -- jump to previous diagnostic in buffer
-    keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)           -- jump to next diagnostic in buffer
-    keymap.set("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", opts) -- go to specific symbol
+    for mode_name, maps in pairs(lsp_mappings) do
+        for keymap, cmd_data in pairs(maps) do
+            local opts = { noremap = true, silent = true, buffer = bufnr, desc = cmd_data[2] }
+            vim.keymap.set(mode_name, keymap, cmd_data[1], opts)
+        end
+    end
 
     if client.server_capabilities.documentFormattingProvider then
-        keymap.set("n", "cf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+        local opts = { noremap = true, silent = true, buffer = bufnr, desc = "Code Format" }
+        vim.keymap.set("n", "cf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
     end
 end
 
@@ -45,6 +52,17 @@ end
 -- LSP servers configuration
 local util = require("lspconfig/util")
 
+-- General languages
+local languages = { "bashls", "clangd", "puppet", "terraformls" }
+
+for _, lang in ipairs(languages) do
+    lspconfig[lang].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+    })
+end
+
+-- Customization per language
 lspconfig["gopls"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
@@ -73,26 +91,6 @@ lspconfig["pylsp"].setup({
             configurationSources = { 'flake8' },
         },
     },
-})
-
-lspconfig["bashls"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-})
-
-lspconfig["clangd"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-})
-
-lspconfig["puppet"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-})
-
-lspconfig["terraformls"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
 })
 
 lspconfig["lua_ls"].setup({
