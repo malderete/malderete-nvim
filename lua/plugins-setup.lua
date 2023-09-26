@@ -71,7 +71,7 @@ return packer.startup(function(use)
     -- configuring lsp servers
     use("neovim/nvim-lspconfig")                     -- configure language servers
     use("hrsh7th/cmp-nvim-lsp")                      -- for autocompletion
-    use({ "glepnir/lspsaga.nvim", branch = "main" }) -- better LSP UIs
+    use({ "nvimdev/lspsaga.nvim", branch = "main" }) -- better LSP UIs
     use("onsails/lspkind.nvim")                      -- vs-code like icons for autocompletion
 
     -- Symbols list based on LSP
