@@ -37,17 +37,17 @@ keymap.set("n", "<leader>tp", ":tabp<CR>")     --  go to previous tab
 ----------------------
 
 -- nvim-tree
-keymap.set("n", "<leader>ef", ":NvimTreeFindFileToggle<CR>") -- toggle open file explorer with current file selected
+keymap.set("n", "<leader>ef", ":NvimTreeFindFileToggle<CR>", { desc = "Explore Files toggle" }) -- toggle open file explorer with current file selected
 
 -- telescope
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")              -- find files within current working directory, respects .gitignore
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")               -- find string in current working directory as you type
-keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")             -- find string under cursor in current working directory
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")                 -- list open buffers
-keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")               -- list available help tags
-keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>")             -- find in GIT commits
-keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>")              -- list GIT status per file
-keymap.set("n", "<leader>ts", "<cmd>TodoTelescope keywords=TODO,FIXME<cr>") -- list todo-comments
+keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })                -- find files within current working directory, respects .gitignore
+keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find in files" })              -- find string in current working directory as you type
+keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor" }) -- find string under cursor in current working directory
+keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })                 -- list open buffers
+keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "List help tags" })             -- list available help tags
+keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", { desc = "Git commits" })              -- find in GIT commits
+keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>", { desc = "Git status" })                -- list GIT status per file
+keymap.set("n", "<leader>ts", "<cmd>TodoTelescope keywords=TODO,FIXME<cr>", { desc = "List Tasks" })   -- list todo-comments
 
 -- restart lsp server
-keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+keymap.set("n", "<leader>rs", ":LspRestart<CR>", { desc = "Restart LSP" }) -- mapping to restart lsp if necessary
