@@ -89,7 +89,7 @@ return packer.startup(function(use)
     -- add, delete, change surroundings
     use({ "kylechui/nvim-surround", tag = "*" })
 
-    use({ 'lewis6991/gitsigns.nvim' })
+    use({"lewis6991/gitsigns.nvim" })
 
     -- treesitter configuration
     use({
@@ -99,6 +99,9 @@ return packer.startup(function(use)
             ts_update()
         end,
     })
+
+    -- which-key helps to remember keymaps
+    use({ "folke/which-key.nvim" })
 
     if packer_bootstrap then
         require("packer").sync()
