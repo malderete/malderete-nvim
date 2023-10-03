@@ -1,22 +1,27 @@
-local setup, indent_blankline = pcall(require, "indent_blankline")
+local setup, indent_blankline = pcall(require, "ibl")
 if not setup then
     return
 end
 
 indent_blankline.setup({
-    char = "│",
-    filetype_exclude = {
-        "help",
-        "alpha",
-        "dashboard",
-        "neo-tree",
-        "Trouble",
-        "lazy",
-        "mason",
-        "notify",
-        "toggleterm",
-        "lazyterm",
+    indent = {
+        char = "│",
     },
-    show_trailing_blankline_indent = false,
-    show_current_context = false,
+    exclude = {
+        filetypes = {
+            "help",
+            "alpha",
+            "dashboard",
+            "neo-tree",
+            "Trouble",
+            "lazy",
+            "mason",
+            "notify",
+            "toggleterm",
+            "lazyterm",
+        },
+    },
+    scope = {
+        enabled = true,
+    },
 })
