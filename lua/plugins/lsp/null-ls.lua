@@ -24,6 +24,7 @@ null_ls.setup({
         }),
         null_ls.builtins.diagnostics.puppet_lint,
         null_ls.builtins.formatting.puppet_lint,
+        null_ls.builtins.formatting.clang_format,
     },
     -- configure format on save
     on_attach = function(current_client, bufnr)
