@@ -8,6 +8,12 @@ vim.g.loaded_netrwPlugin = 1
 opt.relativenumber = true -- show relative line numbers
 opt.number = true         -- shows absolute line number on cursor line (when relative number is on)
 
+-- fold settings
+opt.foldcolumn = '1' -- '0' is not bad
+opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+opt.foldlevelstart = 99
+opt.foldenable = true
+
 -- timeouts for which-key
 opt.timeout = true
 opt.timeoutlen = 300
