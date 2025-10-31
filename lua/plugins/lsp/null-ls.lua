@@ -16,12 +16,6 @@ null_ls.setup({
         --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
         formatting.prettier, -- js/ts formatter
         formatting.stylua,   -- lua formatter
-        diagnostics.eslint_d.with({
-            -- js/ts linter
-            condition = function(utils)
-                return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
-            end,
-        }),
         null_ls.builtins.diagnostics.puppet_lint,
         null_ls.builtins.formatting.puppet_lint,
         null_ls.builtins.formatting.clang_format,
@@ -35,6 +29,7 @@ null_ls.setup({
                 buffer = bufnr,
                 callback = function()
                     vim.lsp.buf.format({
+                        async = false,
                         filter = function(client)
                             --  only use null-ls for formatting instead of lsp server
                             return client.name == "null-ls"
