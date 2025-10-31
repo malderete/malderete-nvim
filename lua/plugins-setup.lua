@@ -86,6 +86,12 @@ return packer.startup(function(use)
     -- Symbols list based on LSP
     use("simrat39/symbols-outline.nvim")
 
+    -- DAP debugger
+    use("mfussenegger/nvim-dap")
+    use("nvim-neotest/nvim-nio")
+    use("rcarriga/nvim-dap-ui")
+    use("leoluz/nvim-dap-go")
+
     -- auto closing
     use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 
