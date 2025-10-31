@@ -1,8 +1,3 @@
-local lspconfig_status, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status then
-    return
-end
-
 local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_nvim_lsp_status then
     return
@@ -53,20 +48,26 @@ end
 local util = require("lspconfig/util")
 
 -- General languages
-local languages = { "bashls", "clangd", "puppet", "terraformls" }
+local languages = {
+    "bashls",
+    "clangd",
+    "puppet",
+    "terraformls",
+    "ts_ls",
+}
 
 for _, lang in ipairs(languages) do
-    lspconfig[lang].setup({
+    vim.lsp.config(lang,{
         capabilities = capabilities,
         on_attach = on_attach,
     })
+    vim.lsp.enable(lang)
 end
 
 -- Customization per language
-lspconfig["gopls"].setup({
+vim.lsp.config("gopls", {
     capabilities = capabilities,
     on_attach = on_attach,
-    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
     settings = {
         gopls = {
             analyses = {
@@ -76,8 +77,9 @@ lspconfig["gopls"].setup({
         },
     },
 })
+vim.lsp.enable("gopls")
 
-lspconfig["pylsp"].setup({
+vim.lsp.config("pylsp", {
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
@@ -92,8 +94,9 @@ lspconfig["pylsp"].setup({
         },
     },
 })
+vim.lsp.enable("pylsp")
 
-lspconfig["lua_ls"].setup({
+vim.lsp.config("lua_ls", {
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
@@ -112,3 +115,4 @@ lspconfig["lua_ls"].setup({
         },
     },
 })
+vim.lsp.enable("lua_ls")
