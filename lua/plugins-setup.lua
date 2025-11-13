@@ -76,6 +76,7 @@ return packer.startup(function(use)
     -- LSP servers, linters and formmaters
     use("williamboman/mason.nvim")           -- managing lsp servers, linters & formatters
     use("williamboman/mason-lspconfig.nvim") -- closes some gaps between mason.nvim and lspconfig
+    use("jay-babu/mason-nvim-dap.nvim") -- adds support for DAP adapters to mason
 
     -- configuring lsp servers
     use("neovim/nvim-lspconfig")                     -- configure language servers
@@ -91,6 +92,7 @@ return packer.startup(function(use)
     use("nvim-neotest/nvim-nio")
     use("rcarriga/nvim-dap-ui")
     use("leoluz/nvim-dap-go")
+    use("mfussenegger/nvim-dap-python")
 
     -- auto closing
     use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...

@@ -8,6 +8,11 @@ if not mason_lspconfig_status then
     return
 end
 
+local mason_dap_status, mason_dap = pcall(require, "mason-nvim-dap")
+if not mason_dap_status then
+    return
+end
+
 mason.setup({
     log_level = vim.log.levels.ERROR,
     providers = {
@@ -22,6 +27,15 @@ mason_lspconfig.setup({
         "bashls",
         "lua_ls",
     },
-    -- auto-install configured servers (with lspconfig)
     automatic_installation = false,
+})
+
+mason_dap.setup({
+    ensure_installed = {
+        "python",
+        "codelldb",
+    },
+    automatic_installation = false,
+    -- auto-configure DAP
+    handlers = {},
 })
