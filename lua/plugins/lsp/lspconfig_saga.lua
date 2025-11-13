@@ -13,7 +13,6 @@ local lsp_mappings = {
         ["<leader>o"] = { "<cmd>Lspsaga outline<cr>", "Outline on right hand side" },
         ["<leader>ca"] = { "<cmd>Lspsaga code_action<cr>", "Code Actions" },
         ["<leader>rn"] = { "<cmd>Lspsaga rename<cr>", "Rename" },
-        ["<leader>d"] = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
         ["[d"] = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "Diagnostic Previous" },
         ["]d"] = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "Diagnostic Next" },
         ["<leader>ss"] = { "<cmd>Telescope lsp_document_symbols<CR>", "Show Symbols" }

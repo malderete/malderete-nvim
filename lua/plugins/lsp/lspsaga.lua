@@ -4,6 +4,10 @@ if not saga_status then
 end
 
 saga.setup({
+    lightbulb = {
+        sign = false,  -- Dont show it in the line number column
+        virtual_text = true,
+    },
     definition = {
         keys = {
             edit = "<CR>",
