@@ -77,6 +77,7 @@ return packer.startup(function(use)
     use("williamboman/mason.nvim")           -- managing lsp servers, linters & formatters
     use("williamboman/mason-lspconfig.nvim") -- closes some gaps between mason.nvim and lspconfig
     use("jay-babu/mason-nvim-dap.nvim") -- adds support for DAP adapters to mason
+    use("theHamsta/nvim-dap-virtual-text")  -- adds virtualtext while debugging
 
     -- configuring lsp servers
     use("neovim/nvim-lspconfig")                     -- configure language servers
