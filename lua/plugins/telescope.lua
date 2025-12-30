@@ -11,15 +11,7 @@ end
 telescope.setup({
     defaults = {
         prompt_prefix = "🔭" .. " ",
-        selection_caret = "" .. " ",
-        pickers = {
-            live_grep = {
-                only_sort_text = true,
-            },
-            grep_string = {
-                only_sort_text = true,
-            },
-        },
+        selection_caret = " " .. " ",
         layout_config = {
             horizontal = {
                 preview_width = 0.55,
@@ -38,6 +30,17 @@ telescope.setup({
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
             },
+        },
+    },
+    pickers = {
+        live_grep = {
+            only_sort_text = true,
+        },
+        grep_string = {
+            only_sort_text = true,
+        },
+        find_files = {
+            follow = true,
         },
     },
 })

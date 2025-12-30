@@ -24,6 +24,7 @@ treesitter.setup({
         "c",
         "cpp",
         "go",
+        "puppet",
         "python",
     },
     auto_install = false,
