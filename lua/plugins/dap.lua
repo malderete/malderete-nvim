@@ -1,7 +1,7 @@
 local config = {
     dap = {
         breakpoint = {
-            text = "",
+            text = "🔴",
             texthl = "DiagnosticSignError",
             linehl = "",
             numhl = "",
@@ -60,6 +60,11 @@ end
 -- debugpy is managed by mason so get the path from there
 local debugpy_mason_path = vim.fn.stdpath('data') .. '/mason/packages/debugpy/venv/bin/python'
 dap_py.setup(debugpy_mason_path)
+
+-- Define DAP signs
+vim.fn.sign_define("DapBreakpoint", config.dap.breakpoint)
+vim.fn.sign_define("DapBreakpointRejected", config.dap.breakpoint)
+vim.fn.sign_define("DapStopped", config.dap.stopped)
 
 -- DAP UI auto open
 dap.listeners.before.attach.dapui_config = function()
