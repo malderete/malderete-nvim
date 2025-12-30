@@ -85,8 +85,8 @@ return packer.startup(function(use)
     use({ "nvimdev/lspsaga.nvim", branch = "main" }) -- better LSP UIs
     use("onsails/lspkind.nvim")                      -- vs-code like icons for autocompletion
 
-    -- Symbols list based on LSP
-    use("simrat39/symbols-outline.nvim")
+    -- Symbols list
+    use("stevearc/aerial.nvim")
 
     -- DAP debugger
     use("mfussenegger/nvim-dap")

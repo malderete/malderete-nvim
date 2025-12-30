@@ -57,5 +57,8 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>", { desc = "Git sta
 keymap.set("n", "<leader>gt", "<cmd>Gitsigns toggle_current_line_blame<cr>", { desc = "Git blame current line" }) -- toggle current line blame
 keymap.set("n", "<leader>ts", "<cmd>TodoTelescope keywords=TODO,FIXME<cr>", { desc = "List Tasks" })              -- list todo-comments
 
+-- aerial (symbols explorer)
+keymap.set("n", "<leader>ss", "<cmd>AerialToggle<cr>", { desc = "Show Symbols toggle" })
+
 -- restart lsp server
 keymap.set("n", "<leader>rs", ":LspRestart<CR>", { desc = "Restart LSP" }) -- mapping to restart lsp if necessary
