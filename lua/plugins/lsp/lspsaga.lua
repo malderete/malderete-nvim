@@ -1,29 +1,32 @@
-local saga_status, saga = pcall(require, "lspsaga")
-if not saga_status then
-    return
-end
-
-saga.setup({
-    lightbulb = {
-        sign = false,  -- Dont show it in the line number column
-        virtual_text = true,
+return {
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+        {"nvim-tree/nvim-web-devicons", lazy = true }
     },
-    definition = {
-        keys = {
-            edit = "<CR>",
+    opts = {
+        lightbulb = {
+            sign = false,  -- Do not show it in the line number column
+            virtual_text = true,
+        },
+        definition = {
+            keys = {
+                edit = "<CR>",
+            },
+        },
+        outline = {
+            keys = {
+                jump = "<CR>",
+            },
+        },
+        finder = {
+            default = "def+ref",
+            keys = {
+                toggle_or_open = "<CR>",
+                vsplit = "v",
+                close = "q",
+            }
         },
     },
-    outline = {
-        keys = {
-            jump = "<CR>",
-        },
-    },
-    finder = {
-        default = "def+ref",
-        keys = {
-            toggle_or_open = "<CR>",
-            vsplit = "v",
-            close = "q",
-        }
-    }
-})
+}

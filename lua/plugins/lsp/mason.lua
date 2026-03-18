@@ -1,41 +1,43 @@
-local mason_status, mason = pcall(require, "mason")
-if not mason_status then
-    return
-end
-
-local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfig_status then
-    return
-end
-
-local mason_dap_status, mason_dap = pcall(require, "mason-nvim-dap")
-if not mason_dap_status then
-    return
-end
-
-mason.setup({
-    log_level = vim.log.levels.ERROR,
-    providers = {
-        "mason.providers.client" -- To avoid corporate network configurations
+return {
+    "williamboman/mason.nvim",
+    dependencies = {
+        "williamboman/mason-lspconfig.nvim",
+        "jay-babu/mason-nvim-dap.nvim",
     },
-})
+    cmd = "Mason",
+    event = "VeryLazy",
+    config = function()
+        local mason = require("mason")
+        local mason_lspconfig = require("mason-lspconfig")
+        local mason_dap = require("mason-nvim-dap")
 
-mason_lspconfig.setup({
-    ensure_installed = {
-        "pylsp",
-        "clangd",
-        "bashls",
-        "lua_ls",
-    },
-    automatic_installation = false,
-})
+        -- Mason Core
+        mason.setup({
+            log_level = vim.log.levels.ERROR,
+            providers = {
+                "mason.providers.client" -- To avoid corporate network configurations
+            },
+        })
 
-mason_dap.setup({
-    ensure_installed = {
-        "python",
-        "codelldb",
-    },
-    automatic_installation = false,
-    -- auto-configure DAP
-    handlers = {},
-})
+        -- Bridge for LSP
+        mason_lspconfig.setup({
+            ensure_installed = {
+                "pylsp",
+                "clangd",
+                "bashls",
+                "lua_ls",
+            },
+            automatic_installation = false,
+        })
+
+        -- Bridge for DAP
+        mason_dap.setup({
+            ensure_installed = {
+                "python",
+                "codelldb",
+            },
+            automatic_installation = false,
+            handlers = {},
+        })
+  end,
+}
