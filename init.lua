@@ -1,29 +1,6 @@
-require("plugins-setup")
-
+-- Load nvim core config first
 require("core.options")
 require("core.keymaps")
-require("core.colorscheme")
 
---plugins configuirations
-require("plugins.nvim-tree")
-require("plugins.indent-blankline")
-require("plugins.lualine")
-require("plugins.remember")
-require("plugins.dressing")
-require("plugins.bufferline")
-require("plugins.telescope")
-require("plugins.nvim-cmp")
-require("plugins.lsp.mason")
-require("plugins.lsp.lspsaga")
-require("plugins.lsp.lspconfig_saga")
-require("plugins.lsp.null-ls")
-require("plugins.dap")
-require("plugins.comment")
-require("plugins.todo-comments")
-require("plugins.sorround")
-require("plugins.nvim-ufo")
-require("plugins.aerial")
-require("plugins.autopairs")
-require("plugins.treesitter")
-require("plugins.gitsigns")
-require("plugins.which-key")
+-- Now we can load plugins
+require("plugins-setup")
