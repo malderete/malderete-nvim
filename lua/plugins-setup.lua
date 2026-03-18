@@ -21,4 +21,5 @@ require("lazy").setup({
     { import = "plugins.ui" },
     { import = "plugins.navigation" },
     { import = "plugins.lsp" },
+    { import = "plugins.dap" },
 })
