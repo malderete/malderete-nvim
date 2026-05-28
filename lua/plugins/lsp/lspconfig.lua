@@ -10,9 +10,9 @@ return {
         local lsp_mappings = {
             n = {
                 ["gf"] = { "<cmd>Lspsaga finder<cr>", "Find definition, references" },
-                ["gi"] = { "<cmd>Telescope lsp_implementations<cr>", "Go to Implementation" },
-                ["gd"] = { "<cmd>Lspsaga peek_definition<cr>", "Go to Definition" },
-                ["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Go to Declaration" },
+                ["gi"] = { "<cmd>Telescope lsp_implementations<cr>", "Implementations" },
+                ["gd"] = { "<cmd>Lspsaga peek_definition<cr>", "Peek Definition" },
+                ["gD"] = { "<cmd>Lspsaga goto_type_definition<cr>", "Go to type Definition" },
                 ["K"] = { "<cmd>Lspsaga hover_doc<cr>", "Show documentation form the word under the cursor" },
                 ["<leader>o"] = { "<cmd>Lspsaga outline<cr>", "Outline on right hand side" },
                 ["<leader>ca"] = { "<cmd>Lspsaga code_action<cr>", "Code Actions" },

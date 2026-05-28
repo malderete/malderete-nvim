@@ -37,7 +37,11 @@ return {
                 "codelldb",
             },
             automatic_installation = false,
-            handlers = {},
+            handlers = {
+                -- Disable auto setup for Go and Python because of nvim-dap-go and nvim-dap-python
+                go = function(_) end,
+                python = function(_) end,
+            },
         })
   end,
 }
