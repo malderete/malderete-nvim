@@ -53,3 +53,20 @@ opt.splitright = true     -- split vertical window to the right
 opt.splitbelow = true     -- split horizontal window to the bottom
 
 opt.iskeyword:append("-") -- consider string-string as whole word
+
+-- Diagnostic base config
+vim.diagnostic.config({
+  -- Enable signs in the gutter (sign column)
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN]  = '',
+      [vim.diagnostic.severity.INFO]  = '',
+      [vim.diagnostic.severity.HINT]  = 'ﴞ ',
+    },
+  },
+  -- Underline problematic code
+  underline = false,
+  -- Update diagnostics on insert mode (useful for fast feedback)
+  update_in_insert = false,
+})
